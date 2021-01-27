@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev:client": "cd client && yarn start",
+    "dev:server": "cd server && yarn dev",
+    "dev": "concurrently --kill-others-on-fail \"yarn dev:server\" \"yarn dev:client\"",
+    "build:client": "cd client && yarn build",
+    "build:server": "cd server && yarn build",
+    "build": "cd client && yarn && cd ../server && yarn && cd .. && yarn build:client && yarn build:server",
+    "start": "NODE_ENV=production node server/build/index.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
