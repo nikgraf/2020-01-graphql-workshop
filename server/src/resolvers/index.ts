@@ -3,12 +3,17 @@ import {
   getAllProducts,
   getProductsByIds,
   getProductById,
+  getProductsByUserId,
 } from "../db/product";
 import { getUserById } from "../db/user";
 
 const resolvers: Resolvers = {
   User: {
     avatar: (parent: any) => parent.image,
+    // @ts-ignore
+    createdProducts: (user) => {
+      return getProductsByUserId(user.id);
+    },
   },
   Product: {
     // @ts-ignore
@@ -23,18 +28,18 @@ const resolvers: Resolvers = {
       return getProductById(args.id);
     },
     // @ts-ignore
-    user: () => (_parent, args) => {
+    user: async (_parent, args) => {
+      console.log("user query");
       return getUserById(args.id) as any;
     },
-    // @ts-ignore
-    product: async (_parent, args, context) => {
-      const result = getProductsByIds([args.id]);
-      if (result.length > 0) {
-        return result[0];
-      }
-      return null;
-      // return await context.productLoader.load(args.id);
-    },
+    // product: async (_parent, args, context) => {
+    //   const result = getProductsByIds([args.id]);
+    //   if (result.length > 0) {
+    //     return result[0];
+    //   }
+    //   return null;
+    //   // return await context.productLoader.load(args.id);
+    // },
   },
 };
 

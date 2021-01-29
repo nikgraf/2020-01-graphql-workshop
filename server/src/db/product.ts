@@ -34,3 +34,8 @@ export function getProductById(id: string) {
   console.log("getProductById", id);
   return products.find((product) => id === product.id) || null;
 }
+
+export function getProductsByUserId(userId: string) {
+  console.log("getProductsByUserId", userId);
+  return products.filter((product) => product.creatorId === userId);
+}
