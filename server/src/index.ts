@@ -11,8 +11,8 @@ const port = process.env.PORT || 5000;
 const apollo = new ApolloServer({
   typeDefs: schema,
   resolvers,
-  // mocks: true,
-  // mockEntireSchema: false,
+  mocks: true,
+  mockEntireSchema: false,
   context: (_req) => ({
     // for authentication: req.headers.authorization
     productLoader: createProductLoader(),
