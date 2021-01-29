@@ -4,6 +4,7 @@ import path from "path";
 import resolvers from "./resolvers";
 import schema from "./schema";
 import { createProductLoader } from "./dataloaders/product";
+import { createUserLoader } from "./dataloaders/user";
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -16,6 +17,7 @@ const apollo = new ApolloServer({
   context: (_req) => ({
     // for authentication: req.headers.authorization
     productLoader: createProductLoader(),
+    userLoader: createUserLoader(),
   }),
 });
 apollo.applyMiddleware({ app });

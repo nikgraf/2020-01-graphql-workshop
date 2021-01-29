@@ -1,3 +1,12 @@
+/**
+ * getAllProducts
+ * Product.creator(product) -> loader.load()
+ * Product.creator(product) -> loader.load()
+ * Product.creator(product) -> loader.load()
+ *
+ * getUsersByIds()
+ */
+
 import { Product, Resolvers } from "../generated/graphql";
 import {
   getAllProducts,
@@ -17,12 +26,16 @@ const resolvers: Resolvers = {
   },
   Product: {
     // @ts-ignore
-    creator: (product: any) => {
-      return getUserById(product.creatorId);
+    creator: (product: any, args, context) => {
+      // return getUserById(product.creatorId);
+      return context.userLoader.load(product.creatorId);
     },
   },
   Query: {
-    products: () => getAllProducts() as any[],
+    products: () => {
+      // console.log(JSON.stringify(info, null, 2));
+      return getAllProducts() as any[];
+    },
     // @ts-ignore
     product: async (_parent, args, context, info) => {
       return getProductById(args.id);

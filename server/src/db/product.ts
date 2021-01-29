@@ -34,9 +34,21 @@ const products: ProductModel[] = [
       title: "Bluebook front view",
     },
   },
+  {
+    id: "bbbbb",
+    name: "Redbook",
+    description: "The finest notebook on the market.",
+    creatorId: "iiii",
+    image: {
+      url:
+        "https://www.refurbed.at/files/pi/lenovo-tp-x240-4600u-1594969613.jpg?t=resize&h=400&w=300",
+      title: "Bluebook front view",
+    },
+  },
 ];
 
 export function getAllProducts() {
+  console.log("getAllProducts");
   return products;
 }
 

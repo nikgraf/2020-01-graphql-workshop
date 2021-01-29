@@ -3,6 +3,10 @@ query products {
     id
     name
     description
+    image {
+      url
+      title
+    }
     creator {
       avatar {
         url

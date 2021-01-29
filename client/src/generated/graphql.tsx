@@ -84,7 +84,10 @@ export type ProductsQuery = (
   & { products?: Maybe<Array<Maybe<(
     { __typename?: 'Product' }
     & Pick<Product, 'id' | 'name' | 'description'>
-    & { creator: (
+    & { image?: Maybe<(
+      { __typename?: 'Image' }
+      & Pick<Image, 'url' | 'title'>
+    )>, creator: (
       { __typename?: 'User' }
       & { avatar?: Maybe<(
         { __typename?: 'Image' }
@@ -136,6 +139,10 @@ export const ProductsDocument = gql`
     id
     name
     description
+    image {
+      url
+      title
+    }
     creator {
       avatar {
         url
