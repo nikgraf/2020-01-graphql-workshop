@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <h1>Hello World</h1>
       <Products />
-      <ProductComparison />
+      {/* <ProductComparison /> */}
     </div>
   );
 }

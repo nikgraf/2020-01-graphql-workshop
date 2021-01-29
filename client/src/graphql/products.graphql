@@ -1,0 +1,13 @@
+query products {
+  products {
+    id
+    name
+    description
+    creator {
+      avatar {
+        url
+        title
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+query productComparison {
+  productA: product(id: "aaaaa") {
+    name
+  }
+  productB: product(id: "bbbbb") {
+    name
+  }
+}

@@ -1,14 +1,5 @@
 import React from "react";
-import { gql } from "@apollo/client";
 import { useProductsQuery } from "./generated/graphql";
-
-gql`
-  query products {
-    products {
-      name
-    }
-  }
-`;
 
 function Products() {
   const { loading, error, data } = useProductsQuery();
@@ -18,8 +9,11 @@ function Products() {
 
   return (
     <ul>
-      {data?.products?.map((product: any) => (
-        <li key={product.name}>{product.name}</li>
+      {data?.products?.map((product) => (
+        <li key={product?.id}>
+          {product?.name}
+          <div>{product?.description || "No desc"}</div>
+        </li>
       ))}
     </ul>
   );

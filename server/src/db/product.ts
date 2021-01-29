@@ -18,7 +18,8 @@ const products: ProductModel[] = [
     description: "Zero carbon emission notebook",
     creatorId: "uuuu",
     image: {
-      url: "http://example.com/1.png",
+      url:
+        "https://www.refurbed.at/files/pi/lenovo-tp-x240-4600u-1594969613.jpg?t=resize&h=400&w=300",
       title: "Greenbook front view",
     },
   },
@@ -28,7 +29,8 @@ const products: ProductModel[] = [
     description: "The finest notebook on the market.",
     creatorId: "uuuu",
     image: {
-      url: "http://example.com/2.png",
+      url:
+        "https://www.refurbed.at/files/pi/lenovo-tp-x240-4600u-1594969613.jpg?t=resize&h=400&w=300",
       title: "Bluebook front view",
     },
   },

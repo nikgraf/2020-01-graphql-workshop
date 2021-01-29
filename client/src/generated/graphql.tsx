@@ -16,20 +16,43 @@ export type Scalars = {
 };
 
 
+export type Image = {
+  __typename?: 'Image';
+  url?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+export type User = {
+  __typename?: 'User';
+  id: Scalars['ID'];
+  name?: Maybe<Scalars['String']>;
+  avatar?: Maybe<Image>;
+  createdProducts?: Maybe<Array<Product>>;
+};
+
 export type Product = {
   __typename?: 'Product';
+  id: Scalars['ID'];
   name?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  image?: Maybe<Image>;
+  creator: User;
 };
 
 export type Query = {
   __typename?: 'Query';
   products?: Maybe<Array<Maybe<Product>>>;
   product?: Maybe<Product>;
+  user?: Maybe<User>;
 };
 
 
 export type QueryProductArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type QueryUserArgs = {
   id: Scalars['ID'];
 };
 
@@ -60,7 +83,14 @@ export type ProductsQuery = (
   { __typename?: 'Query' }
   & { products?: Maybe<Array<Maybe<(
     { __typename?: 'Product' }
-    & Pick<Product, 'name'>
+    & Pick<Product, 'id' | 'name' | 'description'>
+    & { creator: (
+      { __typename?: 'User' }
+      & { avatar?: Maybe<(
+        { __typename?: 'Image' }
+        & Pick<Image, 'url' | 'title'>
+      )> }
+    ) }
   )>>> }
 );
 
@@ -103,7 +133,15 @@ export type ProductComparisonQueryResult = Apollo.QueryResult<ProductComparisonQ
 export const ProductsDocument = gql`
     query products {
   products {
+    id
     name
+    description
+    creator {
+      avatar {
+        url
+        title
+      }
+    }
   }
 }
     `;
