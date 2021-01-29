@@ -4,12 +4,20 @@ const products = [
     name: "Greenbook",
     description: "Zero carbon emission notebook",
     creatorId: "uuuu",
+    image: {
+      url: "http://example.com/1.png",
+      title: "Greenbook front view",
+    },
   },
   {
     id: "bbbbb",
     name: "Bluebook",
     description: "The finest notebook on the market.",
     creatorId: "uuuu",
+    image: {
+      url: "http://example.com/2.png",
+      title: "Bluebook front view",
+    },
   },
 ];
 

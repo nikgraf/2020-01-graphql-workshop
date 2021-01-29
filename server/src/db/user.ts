@@ -2,6 +2,10 @@ const users = [
   {
     id: "uuuu",
     name: "Anna",
+    image: {
+      url: "http://example.com/1.png",
+      title: "Profile picture",
+    },
   },
 ];
 
