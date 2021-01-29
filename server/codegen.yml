@@ -6,6 +6,8 @@ generates:
     config:
       useIndexSignature: true
       contextType: ../types#GraphQLContext
+    mappers:
+      Product: "../db/product#ProductModel"
     plugins:
       - "typescript"
       - "typescript-resolvers"

@@ -1,4 +1,17 @@
-const products = [
+export type Image = {
+  url: string;
+  title: string;
+};
+
+export type ProductModel = {
+  id: string;
+  name: string;
+  description: string;
+  creatorId: string;
+  image: Image;
+};
+
+const products: ProductModel[] = [
   {
     id: "aaaaa",
     name: "Greenbook",
